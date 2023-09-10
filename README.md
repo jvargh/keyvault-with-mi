@@ -5,6 +5,7 @@
 ## 1.	Create Identity
 ### First, define the UAMI and the resource group:
 ```
+$vmname='winvm-new' 
 $uamiName = "UID1"  
 $resourceGroup = "rg01"  
 $subscriptionID = "<sub-id>"  
@@ -17,7 +18,7 @@ New-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $uamiName
 ## 2.	Assign Identity to VM
 ### Bind the created UAMI to a VM:
 ```
-$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name winvm-new
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmname
 
 Update-AzVM -ResourceGroupName $resourceGroup -VM $vm -IdentityType "UserAssigned" `
 -IdentityID "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$uamiName"
