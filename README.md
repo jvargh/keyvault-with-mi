@@ -5,7 +5,7 @@
 ## 1.	Create Identity
 ### First, define the UAMI and the resource group:
 ```
-$vmname='winvm-new' 
+$vmname='vm01' 
 $uamiName = "UID1"  
 $resourceGroup = "rg01"  
 $subscriptionID = "<sub-id>"  
@@ -79,7 +79,7 @@ Invoke-RestMethod -Uri $uri `
 ## 1.	Enable SAMI on VM
 ### Activate the system-assigned managed identity for your Azure VM:
 ```
-$vmname='winvm-new'  
+$vmname='vm01'  
 $resourceGroup = "rg01"  
 $keyVaultName = "kv01"  
 
